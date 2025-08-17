@@ -1,0 +1,41 @@
+# -----------------------------------------------------------------------------
+# 配置文件：用于 LoRA 训练，使用 Hugging Face 数据集 (已修复)
+# -----------------------------------------------------------------------------
+
+# 指定数据集配置文件路径
+dataset = "examples/inscene_dataset.toml"
+# 启用梯度检查点以节省显存
+activation_checkpointing = true
+# 训练参数
+epochs = 31  # 调整 epochs 以达到约 3000 步
+micro_batch_size_per_gpu = 1
+gradient_accumulation_steps = 4
+learning_rate = "2e-4"
+output_dir = "/mnt/output_lora"
+save_every_n_steps = 1000 # 每 1000 步保存一次
+
+# 模型配置
+[model]
+type = "flux"
+# diffusers_path 指向包含 VAE、文本编码器等基础组件的文件夹
+diffusers_path = "/root/diffusion-pipe/diffusion-models/FLUX.1"
+# transformer_path 指向特定的 Kontext Transformer 权重文件，它会覆盖基础模型中的 transformer
+transformer_path = "/root/diffusion-pipe/diffusion-models/flux1-kontext-dev.safetensors"
+dtype = "bfloat16"
+
+# LoRA 适配器配置
+[adapter]
+type = "lora"
+rank = 8
+lora_dropout = 0.1
+
+# 优化器配置
+[optimizer]
+type = "adamw8bit"
+
+# 日志记录配置
+[monitoring]
+enable_wandb = false
+wandb_tracker_name = "diffusion-pipe-lora"
+wandb_run_name = "flux-kontext-lora-run-1"
+wandb_api_key = "0bfe0eb88e3df3984dc85ddfef0d714d06770aa0"

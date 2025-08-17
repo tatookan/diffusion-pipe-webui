@@ -5,16 +5,16 @@ min_ar = 0.5
 max_ar = 2.0
 num_ar_buckets = 9
 
-num_repeats = 1  # whatever you want
+num_repeats = 1  # 随心所欲
 
 [[directory]]
-# The target images go in here. These are the images that the model will learn to produce.
+# 目标图像放在这里。这些是模型要学习生成的图像。
 path = '/home/anon/data/images/kontext/target'
-# The control/context images go in here, with the same name as the corresponding target images.
-# Every target image must have a corresponding control image or it will fail.
+# 控制/上下文图像放在这里，名称与相应的目标图像相同。
+# 每个目标图像都必须有相应的控制图像，否则就会失败。
 control_path = '/home/anon/data/images/kontext/control'
 
-# You can train on normal t2i datasets at the same time. But they have to be in a different directory.
+# 您可以同时在普通的 t2i 数据集上进行训练。但它们必须在不同的目录下。
 
 # [[directory]]
 # path = '/home/anon/data/images/normal_t2i_dataset'

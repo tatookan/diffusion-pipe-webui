@@ -1,0 +1,19 @@
+# -----------------------------------------------------------------------------
+# 数据集配置文件: 本地 InScene-Dataset
+# -----------------------------------------------------------------------------
+
+# 训练分辨率 (必须是复数形式 resolutions, 且为一个列表)
+resolutions = [896]
+
+# 是否启用 AR Bucketing (宽高比分桶)
+enable_ar_bucket = true
+min_ar = 0.5
+max_ar = 2.0
+num_ar_buckets = 9
+
+# 这是一个 [[directory]] 块，脚本会读取这个块来找到数据
+[[directory]]
+# 目标图像和提示词 (.txt) 放在这里
+path = 'datasets/inscene_dataset/target'
+# 控制/上下文图像放在这里，名称必须与相应的目标图像相同
+control_path = 'datasets/inscene_dataset/control'

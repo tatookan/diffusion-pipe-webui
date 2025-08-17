@@ -289,13 +289,13 @@ transformer_dtype = 'float8'
 #flux_shift = true
 ```
 
-Flux Kontext is supported, both for standard t2i datasets and edit datasets. The weight shapes are 100% compatible with Flux Dev, so if you already have the Dev Diffusers folder you can use transformer_path to point to the Kontext single model file to save space.
+Flux Kontext 支持标准 t2i 数据集和编辑数据集。权重形状与 Flux Dev 完全兼容，因此如果您已经有 Dev Diffusers 文件夹，可以使用 transformer_path 指向 Kontext 单一模型文件，以节省空间。
 
-See the [Flux Kontext example dataset config](../examples/flux_kontext_dataset.toml) for how to configure the dataset.
+有关如何配置数据集，请参阅 [Flux Kontext 示例数据集配置]（.../examples/flux_kontext_dataset.toml）。
 
-**IMPORTANT**: The control/context images should be approximately the same aspect ratio as the target images. All of the aspect ratio and size bucketing is done with respect to the target images. Then, the control image is resized and cropped to match the target image size. If the aspect ratio of the control image is very different from the target image, it will be cropping away a lot of the control image.
+**重要**： 控制/上下文图像的宽高比应与目标图像大致相同。所有的宽高比和大小分隔都是根据目标图像进行的。然后，调整控制图像的大小和裁剪，使其与目标图像大小相匹配。如果控制图像的长宽比与目标图像相差很大，就会裁剪掉控制图像的很多部分。
 
-Flux Kontext LoRAs are saved in Diffusers format, which will work in ComfyUI.
+Flux Kontext LoRA 以 Diffusers 格式保存，可以在 ComfyUI 中使用。
 
 ## Wan2.2
 Load from checkpoint:
